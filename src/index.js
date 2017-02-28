@@ -70,6 +70,7 @@ $(() => {
     $('#gitTree').html(link(data.gitTree));
     $('#HEAD').html(link(data.HEAD));
     $('#reflog').html(link(data.reflog));
+    $('#refInfo').html(link(data.refInfo));
     $('#branch').html(link(data.branch));
     $('#config').html(data.config);
     $('#version').html(data.version);

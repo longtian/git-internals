@@ -20,23 +20,40 @@
                 <table id="packs" class="display compact"></table>
             </td>
             <td width="25%">
-                <strong>HEAD</strong>
-                <pre id="HEAD"></pre>
+                <strong>.git/HEAD</strong>
+                <div>
+                    <mark>
+                        <pre id="HEAD"></pre>
+                    </mark>
+                </div>
+
                 <strong>reflog</strong>
                 <pre id="reflog"></pre>
+
                 <strong>git log</strong>
                 <pre id="log"></pre>
+
                 <hr />
+
                 <strong>Branches:</strong>
                 <pre id="branch"></pre>
+
                 <strong>Refs:</strong>
                 <table id="refs" class="display compact"></table>
+
+                <strong>.git/info/refs</strong>
+                <pre id="refInfo"></pre>
+
                 <hr />
+
                 <strong>Git Version:</strong>
                 <pre id="version"></pre>
+
                 <strong>Local Config:</strong>
                 <pre id="config"></pre>
+
                 <hr />
+
                 <strong>Working directory</strong>
                 <pre id="srcTree"></pre>
             </td>
