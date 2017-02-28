@@ -11,7 +11,7 @@ const link = html => html.replace(/\b\w{38,40}\b/g,
 require('datatables.net-dt/css/jquery.dataTables.css');
 
 $(() => {
-  $.getJSON('data.json', data => {
+  $.getJSON('info.json', data => {
     console.table(data.files);
     $('#myTable').DataTable({
       data: data.files,
