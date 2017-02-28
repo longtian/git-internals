@@ -3,8 +3,16 @@ const dt = require('datatables.net');
 const numeral = require('numeral');
 const moment = require('moment');
 
+const shortSha1 = sha1 => {
+  if (sha1.length === 40) {
+    return `${sha1.slice(0, 8)}`;
+  } else {
+    return `**${sha1.slice(0, 6)}`;
+  }
+}
+
 const link = html => html.replace(/\b\w{38,40}\b/g,
-  match => `<span data-id="${match}" class="sha1">~${match.slice(-8)}</span>`);
+  match => `<span data-id="${match}" class="sha1">${shortSha1(match)}</span>`);
 
 require('datatables.net-dt/css/jquery.dataTables.css');
 
@@ -61,6 +69,7 @@ $(() => {
     $('#srcTree').html(link(data.srcTree));
     $('#gitTree').html(link(data.gitTree));
     $('#HEAD').html(link(data.HEAD));
+    $('#reflog').html(link(data.reflog));
     $('#branch').html(link(data.branch));
     $('#config').html(data.config);
     $('#version').html(data.version);
