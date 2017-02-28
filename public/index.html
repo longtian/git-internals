@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git internals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        pre {
+            margin: 0;
+            padding-left: 6px;
+            border-left: 4px solid #bbb;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        .sha1.active {
+            background: #0081ff;
+            color: white;
+        }
+
+        .object-blob {
+            background: #FEBBB9;
+        }
+
+        .object-commit {
+            background: #93FEA3;
+        }
+
+        .object-tree {
+            background: #D0CCFE;
+        }
+
+        [class^=object], .sha1 {
+            border: 1px solid;
+            border-radius: 4px;
+            display: inline-block;
+            padding: 1px 4px;
+            cursor: default;
+        }
+
+    </style>
+</head>
+<body>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <strong>objects</strong>
+                <table id="myTable" class="display compact"></table>
+            </td>
+            <td>
+                <strong>config</strong>
+                <pre id="config"></pre>
+                <hr/>
+                <strong>branch</strong>
+                <pre id="branch"></pre>
+                <strong>refs</strong>
+                <pre id="refs"></pre>
+                <hr/>
+                <strong>HEAD</strong>
+                <pre id="HEAD"></pre>
+                <strong>log</strong>
+                <pre id="log"></pre>
+                <hr/>
+                <strong>working directory</strong>
+                <pre id="srcTree"></pre>
+            </td>
+            <td>
+                <strong>.git directory</strong>
+                <pre id="gitTree"></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+<script src="assets/bundle.js"></script>
+</html>

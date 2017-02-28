@@ -1,0 +1,41 @@
+{
+  "name": "git-internals",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "ansi-to-html": "^0.6.0",
+    "css-loader": "^0.26.2",
+    "datatables.net": "^1.10.13",
+    "datatables.net-dt": "^1.10.13",
+    "escape-html": "^1.0.3",
+    "express": "^4.14.1",
+    "file-loader": "^0.10.1",
+    "glob": "^7.1.1",
+    "jquery": "^3.1.1",
+    "moment": "^2.17.1",
+    "numeral": "^2.0.4",
+    "pako": "^1.0.4",
+    "sha1": "^1.1.1",
+    "style-loader": "^0.13.2",
+    "vis": "^4.18.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyvernnot/git-internals.git"
+  },
+  "keywords": [],
+  "author": "wyvernnot <wyvernnot@gmail.com> (http://wyvernnot.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wyvernnot/git-internals/issues"
+  },
+  "homepage": "https://github.com/wyvernnot/git-internals#readme"
+}
