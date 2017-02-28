@@ -74,7 +74,38 @@ $(() => {
     $('#HEAD').html(link(data.HEAD));
     $('#branch').html(link(data.branch));
     $('#config').html(data.config);
-    $('#refs').html(link(JSON.stringify(data.refs, null, 2)));
+    $('#version').html(data.version);
+
+    $('#refs').dataTable({
+      info: false,
+      paging: false,
+      data: data.refs,
+      columns: [
+        {
+          data: 'path'
+        }, {
+          data: 'content',
+          render: data => link(`<pre>${data}</pre>`)
+        }
+      ]
+    })
+
+    $('#packs').dataTable({
+      info: false,
+      paging: false,
+      data: data.packs,
+      columns: [
+        {
+          data: 'path',
+          title: 'Pack index file'
+        }, {
+          data: 'content',
+          title: 'Pack Content',
+          render: data => link(`<pre>${data}</pre>`)
+        }
+      ]
+    })
+
   });
 
 })
