@@ -7,7 +7,7 @@ const infoDir = require('./lib/info');
 
 const webpackConfig = require('./webpack.config');
 
-const REPO_FOLDER = process.env.REPO_FOLDER || '/tmp/z';
+const REPO_FOLDER = process.env.REPO_FOLDER;
 
 const app = express();
 app.use(webpackMiddleWare(
@@ -19,13 +19,9 @@ app.use(webpackMiddleWare(
 ))
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/data.json', (req, res) => {
-  res.json({
+  res.json(Object.assign({
     files: walkDir(REPO_FOLDER)
-  });
-});
-
-app.get('/info.json', (req, res) => {
-  res.json(infoDir(REPO_FOLDER));
+  }, infoDir(REPO_FOLDER)));
 });
 
 app.listen(3000);

@@ -6,18 +6,18 @@ const sha1 = require('sha1');
 const pako = require('pako');
 
 const link = html => html.replace(/\b\w{38,40}\b/g,
-  match => `<span data-id="${match}" class="sha1">...${match.slice(-8)}</span>`);
+  match => `<span data-id="${match}" class="sha1">~${match.slice(-8)}</span>`);
 
 require('datatables.net-dt/css/jquery.dataTables.css');
 
 $(() => {
-  $.getJSON('data.json', res => {
-    console.table(res.files);
+  $.getJSON('data.json', data => {
+    console.table(data.files);
     $('#myTable').DataTable({
-      data: res.files,
+      data: data.files,
       info: false,
       paging: false,
-      order: [[3, 'asc'], [1, 'desc']],
+      order: [[3, 'desc'], [1, 'asc']],
       columns: [
         {
           data: 'id',
@@ -58,16 +58,7 @@ $(() => {
         }
       ]
     });
-  });
 
-  $('body').on('mouseover', '.sha1', function () {
-    const highlightId = $(this).data('id').slice(-38);
-    $('.sha1.active').removeClass('active');
-    $(`.sha1[data-id$=${highlightId}]`).addClass('active');
-  });
-
-
-  $.getJSON('info.json', data => {
     $('#log').html(link(data.log));
     $('#srcTree').html(link(data.srcTree));
     $('#gitTree').html(link(data.gitTree));
@@ -82,9 +73,11 @@ $(() => {
       data: data.refs,
       columns: [
         {
-          data: 'path'
+          data: 'path',
+          title: 'Ref File'
         }, {
           data: 'content',
+          title: 'Content',
           render: data => link(`<pre>${data}</pre>`)
         }
       ]
@@ -105,9 +98,13 @@ $(() => {
         }
       ]
     })
-
   });
 
+  $('body').on('mouseover', '.sha1', function () {
+    const highlightId = $(this).data('id').slice(-38);
+    $('.sha1.active').removeClass('active');
+    $(`.sha1[data-id$=${highlightId}]`).addClass('active');
+  });
 })
 
 
