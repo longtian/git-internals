@@ -1,0 +1,46 @@
+pre {
+    margin: 0;
+    padding-left: 6px;
+    border-left: 4px solid #bbb;
+}
+
+td {
+    vertical-align: top;
+}
+
+code {
+    background: #FFDDDD;
+}
+
+.sha1.active {
+    background: #0081FF;
+    color: white;
+}
+
+.object-blob {
+    background: #FEBBB9;
+}
+
+.object-commit {
+    background: #93FEA3;
+}
+
+.object-tree {
+    background: #D0CCFE;
+}
+
+[class^=object], .sha1 {
+    border: 1px solid;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 1px 4px;
+    cursor: default;
+}
+
+#container {
+    display: none;
+}
+
+table {
+    width: 100%;
+}

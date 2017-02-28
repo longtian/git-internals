@@ -1,9 +1,7 @@
 const $ = require('jquery');
 const dt = require('datatables.net');
-const moment = require('moment');
 const numeral = require('numeral');
-const sha1 = require('sha1');
-const pako = require('pako');
+const moment = require('moment');
 
 const link = html => html.replace(/\b\w{38,40}\b/g,
   match => `<span data-id="${match}" class="sha1">~${match.slice(-8)}</span>`);
@@ -12,8 +10,9 @@ require('datatables.net-dt/css/jquery.dataTables.css');
 
 $(() => {
   $.getJSON('info.json', data => {
-    console.table(data.files);
+    $('#loading').remove();
     $('#myTable').DataTable({
+      autoWidth: false,
       data: data.files,
       info: false,
       paging: false,
@@ -37,14 +36,13 @@ $(() => {
           }
         },
         {
-          name: 'ctime',
-          data: 'ctime',
-          title: 'create',
+          data: 'stat.birthtime',
+          title: 'Create',
           render: data => moment(data).format('HH:mm:ss.SSS')
         },
         {
-          data: 'size',
-          title: 'Size',
+          data: 'stat.size',
+          title: 'FileSize',
           render: data => numeral(data).format('0 b')
         },
         {
@@ -54,7 +52,7 @@ $(() => {
         },
         {
           data: 'contentLength',
-          title: 'contentLength'
+          title: 'ContentLength'
         }
       ]
     });
@@ -68,6 +66,7 @@ $(() => {
     $('#version').html(data.version);
 
     $('#refs').dataTable({
+      autoWidth: false,
       info: false,
       paging: false,
       data: data.refs,
@@ -84,6 +83,7 @@ $(() => {
     })
 
     $('#packs').dataTable({
+      autoWidth: false,
       info: false,
       paging: false,
       data: data.packs,
@@ -97,14 +97,18 @@ $(() => {
           render: data => link(`<pre>${data}</pre>`)
         }
       ]
-    })
+    });
+
+    $("#container")
+      .fadeIn()
+      .on('mouseover', '.sha1', function () {
+        const highlightId = $(this).data('id').slice(-38);
+        $('.sha1.active').removeClass('active');
+        $(`.sha1[data-id$=${highlightId}]`).addClass('active');
+      });
   });
 
-  $('body').on('mouseover', '.sha1', function () {
-    const highlightId = $(this).data('id').slice(-38);
-    $('.sha1.active').removeClass('active');
-    $(`.sha1[data-id$=${highlightId}]`).addClass('active');
-  });
+
 })
 
 

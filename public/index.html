@@ -4,74 +4,41 @@
     <meta charset="UTF-8">
     <title>Git internals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        pre {
-            margin: 0;
-            padding-left: 6px;
-            border-left: 4px solid #bbb;
-        }
-
-        td {
-            vertical-align: top;
-        }
-
-        .sha1.active {
-            background: #0081ff;
-            color: white;
-        }
-
-        .object-blob {
-            background: #FEBBB9;
-        }
-
-        .object-commit {
-            background: #93FEA3;
-        }
-
-        .object-tree {
-            background: #D0CCFE;
-        }
-
-        [class^=object], .sha1 {
-            border: 1px solid;
-            border-radius: 4px;
-            display: inline-block;
-            padding: 1px 4px;
-            cursor: default;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<table>
+<div id="loading">
+    正在加载数据...
+</div>
+<table id="container">
     <tbody>
         <tr>
             <td width="50%">
-                <strong>objects</strong>
+                <strong>Objects:(loose objects)</strong>
                 <table id="myTable" class="display compact"></table>
-                <strong>packs</strong>
+                <strong>Packs:(created during <code>git gc</code>)</strong>
                 <table id="packs" class="display compact"></table>
             </td>
-            <td>
-                <strong>version</strong>
-                <pre id="version"></pre>
-                <strong>config</strong>
-                <pre id="config"></pre>
-                <hr />
-                <strong>branch</strong>
-                <pre id="branch"></pre>
-                <strong>refs</strong>
-                <table id="refs" class="display compact"></table>
-                <hr />
+            <td width="25%">
                 <strong>HEAD</strong>
                 <pre id="HEAD"></pre>
-                <strong>log</strong>
+                <strong>git log</strong>
                 <pre id="log"></pre>
                 <hr />
-                <strong>working directory</strong>
+                <strong>Branches:</strong>
+                <pre id="branch"></pre>
+                <strong>Refs:</strong>
+                <table id="refs" class="display compact"></table>
+                <hr />
+                <strong>Git Version:</strong>
+                <pre id="version"></pre>
+                <strong>Local Config:</strong>
+                <pre id="config"></pre>
+                <hr />
+                <strong>Working directory</strong>
                 <pre id="srcTree"></pre>
             </td>
-            <td>
+            <td width="25%">
                 <strong>.git directory</strong>
                 <pre id="gitTree"></pre>
             </td>
