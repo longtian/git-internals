@@ -1,3 +1,7 @@
+body {
+    font-size: 0.9em;
+}
+
 pre {
     margin: 8px;
     padding-left: 6px;
@@ -43,4 +47,5 @@ code {
 
 table {
     width: 100%;
+    font-size: 0.9em;
 }

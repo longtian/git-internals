@@ -13,13 +13,13 @@
 <table id="container">
     <tbody>
         <tr>
-            <td width="50%">
+            <td width="30%">
                 <strong>Objects:(loose objects)</strong>
                 <table id="myTable" class="display compact"></table>
                 <strong>Packs:(created during <code>git gc</code>)</strong>
                 <table id="packs" class="display compact"></table>
             </td>
-            <td width="25%">
+            <td width="30%">
                 <strong>.git/HEAD</strong>
                 <div>
                     <mark>
@@ -27,14 +27,21 @@
                     </mark>
                 </div>
 
-                <strong>reflog</strong>
-                <pre id="reflog"></pre>
-
                 <strong>git log</strong>
                 <pre id="log"></pre>
 
+                <strong>reflog</strong>
+                <pre id="reflog"></pre>
+
                 <hr />
 
+                <strong>Git Version:</strong>
+                <pre id="version"></pre>
+
+                <strong>Local Config:</strong>
+                <pre id="config"></pre>
+            </td>
+            <td width="20%">
                 <strong>Branches:</strong>
                 <pre id="branch"></pre>
 
@@ -46,18 +53,12 @@
 
                 <hr />
 
-                <strong>Git Version:</strong>
-                <pre id="version"></pre>
-
-                <strong>Local Config:</strong>
-                <pre id="config"></pre>
-
-                <hr />
-
                 <strong>Working directory</strong>
                 <pre id="srcTree"></pre>
+                <strong>Stage</strong>
+                <pre id="stage"></pre>
             </td>
-            <td width="25%">
+            <td width="20%">
                 <strong>.git directory</strong>
                 <pre id="gitTree"></pre>
             </td>

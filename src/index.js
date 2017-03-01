@@ -72,6 +72,7 @@ $(() => {
     $('#reflog').html(link(data.reflog));
     $('#refInfo').html(link(data.refInfo));
     $('#branch').html(link(data.branch));
+    $('#stage').html(link(data.stage));
     $('#config').html(data.config);
     $('#version').html(data.version);
 
