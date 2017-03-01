@@ -5,9 +5,9 @@ const moment = require('moment');
 
 const shortSha1 = sha1 => {
   if (sha1.length === 40) {
-    return `${sha1.slice(0, 8)}`;
+    return `${sha1.slice(0, 7)}`;
   } else {
-    return `**${sha1.slice(0, 6)}`;
+    return `**${sha1.slice(0, 5)}`;
   }
 }
 

@@ -1,7 +1,8 @@
 # git-internals
 
 看到颜大大写的[这篇文章](http://yanhaijing.com/git/2017/02/08/deep-git-3/)，很受启发。
-然后我自己去读了一遍 Git 文档的[第 10 章](https://git-scm.com/book/zh/v2)，顺便写了一个工具，
+然后我自己去读了一遍 Git 文档的[第 10 章](https://git-scm.com/book/zh/v2)和
+[这个视频](https://www.youtube.com/watch?v=dBSHLb1B8sw)，顺便写了一个工具，
 来辅助理解文中的各种概念。
 
 ## 功能
