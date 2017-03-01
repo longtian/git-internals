@@ -3,9 +3,14 @@ const path = require('path');
 const webpackMiddleWare = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const infoDir = require('./lib/info');
+const assert = require('assert');
 
 const webpackConfig = require('./webpack.config');
 const REPO_FOLDER = process.env.REPO_FOLDER;
+const PORT = 3000;
+
+assert(REPO_FOLDER, 'must provide a git folder');
+console.log('using folder ', REPO_FOLDER)
 
 const app = express();
 
@@ -26,4 +31,6 @@ app.get('/info.json', (req, res) => {
   res.json(infoDir(REPO_FOLDER));
 });
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`please open http://127.0.0.1:${PORT} ...`)
+});
